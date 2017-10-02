@@ -1,5 +1,5 @@
 
-![blaze](https://user-images.githubusercontent.com/114097/31093888-1492563a-a7ab-11e7-8163-a3e1e8ff1cde.png)
+![blaze](https://user-images.githubusercontent.com/114097/31093972-6093336a-a7ab-11e7-876b-11d7d4639b53.png)
 > blaze-example.py.md
 
 # Quickstart
