@@ -55,7 +55,7 @@ $ ./myscript.py.md
 hello world
 ```
 
-# Advanced Useage
+# Advanced Usage
 
 Blaze also allows as many paramaters to be passed to your interpreter as you like (unlike normal shebangs), which means you can use tools like [pex](https://github.com/pantsbuild/pex):
 
