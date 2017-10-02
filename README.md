@@ -1,3 +1,5 @@
+`#!/usr/bin/blaze python (or ruby, node, etc.)`
+
 # Quickstart
 
 Download the script, put it somewhere on your `PATH`, and make it executable:
