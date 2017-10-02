@@ -114,8 +114,6 @@ if __name__ == '__main__':
 ```
 ````
 
-> (double backticks should be triple, but that messes with markdown highlighting - sorry!)
-
 Magic, right?
 
 ## Overhead
