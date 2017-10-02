@@ -1,5 +1,7 @@
 
-![blaze](https://user-images.githubusercontent.com/114097/31094015-8690b4c0-a7ab-11e7-9ee0-39dd1ec536d3.png)
+```
+#! /usr/bin/blaze python
+```
 
 # Quickstart
 
