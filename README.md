@@ -54,7 +54,7 @@ If you were to run this file, you would see this:
 ```shell
 $ ./myscript.py.md
 hi
-
+```
 
 It then allows as many paramaters to be passed to your interpreter as you like (unlike normal shebangs), which means you can use tools like [pex](https://github.com/pantsbuild/pex):
 
