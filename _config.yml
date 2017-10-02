@@ -1,4 +1,4 @@
 theme: jekyll-theme-slate
 show_downloads: true
 title: Blaze
-description: "`#!/usr/bin/blaze python (or ruby, node, etc.)`"
+description: Write literate scripts in any language
