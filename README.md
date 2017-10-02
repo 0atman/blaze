@@ -1,4 +1,4 @@
-# Quickstart
+# Lightning-fast language-agnostic literate programming
 
 Download the script, put it somewhere on your `PATH`, and make it executable:
 
