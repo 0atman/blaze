@@ -1,6 +1,6 @@
 
 ```
-#!/usr/bin/blaze python
+#!/usr/bin/blaze python (or ruby, node, etc.)
 ```
 
 # Quickstart
