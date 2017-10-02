@@ -33,7 +33,7 @@ The second category I think is worth exploring.
 It is into this ecosystem I present [Blaze](https://gist.github.com/0atman/5ea526a3ae26409da50dd7697eb700e8).
 
 ## Usage
-Fundamentally, Blaze is a drop-in replacement for `/usr/bin/env`. You stick it at the top of your script, and you can execute it. But Blaze's REAL trick, is that if it is called with a .md file, it only executes code inside triple-backtick codefences: This gives you is the ability to execute your markdown files as though they were normal scripts (it runs python, ruby, nodejs, shell, and likely many more):
+Fundamentally, Blaze is a drop-in replacement for `/usr/bin/env`. You stick it at the top of your script, and you can execute it. But Blaze's REAL trick, is that if it is called with a .md file, it only executes code inside triple-backtick codefences: This gives you is the ability to execute your markdown files as though they were normal scripts (it runs python, ruby, nodejs, shell, and likely many more). Here's a hello world example:
 
 `myscript.py.md`
 ````markdown
@@ -44,7 +44,7 @@ Fundamentally, Blaze is a drop-in replacement for `/usr/bin/env`. You stick it a
 As is this text. However, when you put code in markdown's code fences, it will be executed by blaze:
 
 ```python
-print("hi")
+print("hello world")
 ```
 ````
 
@@ -52,7 +52,7 @@ If you were to run this file, you would see this:
 
 ```shell
 $ ./myscript.py.md
-hi
+hello world
 ```
 
 # Advanced Useage
