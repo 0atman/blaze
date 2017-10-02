@@ -32,27 +32,29 @@ The second category I think is worth exploring.
 
 It is into this ecosystem I present [Blaze](https://gist.github.com/0atman/5ea526a3ae26409da50dd7697eb700e8).
 
-## Blaze is Tiny:
-
-```shell
-#!/usr/bin/env sh
-args=$1
-script=$2
-
-cat $script | awk '{ if (/^```/) { i++; next } if ( i % 2 == 1) { print } }' > $script.out
-$args $script.out
-rm $script.out
-```
-
-> (non-core code stripped from this example, for the real deal, check [the source])(https://github.com/0atman/blaze/blob/master/blaze)
+## Blaze is Tiny
 
 But what it gives you is the ability to execute your markdown files as though they were scripts: It is a drop-in replacement for `/usr/bin/env`:
 
-`myscript.py`
-```python
+`myscript.py.md`
+````markdown
 #!blaze python
+
+# This file is just markdown
+
+As is this text. However, when you put code in markdown's code fences, it will be executed by blaze:
+
+```python
 print("hi")
 ```
+````
+
+If you were to run this file, you would see this:
+
+```shell
+$ ./myscript.py.md
+hi
+
 
 It then allows as many paramaters to be passed to your interpreter as you like (unlike normal shebangs), which means you can use tools like [pex](https://github.com/pantsbuild/pex):
 
@@ -128,6 +130,22 @@ hi
 hi
 ./blaze-test.py  0.02s user 0.00s system 67% cpu 0.030 total
 ```
+
+# Mechanics
+
+Here's the basics of Blaze, a small shell script:
+
+```shell
+#!/usr/bin/env sh
+args=$1
+script=$2
+
+cat $script | awk '{ if (/^```/) { i++; next } if ( i % 2 == 1) { print } }' > $script.out
+$args $script.out
+rm $script.out
+```
+
+> (non-core code stripped from this example, for the real deal, check [the source])(https://github.com/0atman/blaze/blob/master/blaze)
 
 ## Prior Art / Acknowledgements
 
