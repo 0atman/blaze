@@ -57,6 +57,8 @@ If you were to run this file, you would see this:
 hello world
 ```
 
+YOU JUST EXECUTED A MARKDOWN FILE!
+
 # Advanced Usage
 
 Blaze also allows as many paramaters to be passed to your interpreter as you like (unlike normal shebangs), which means you can use tools like [pex](https://github.com/pantsbuild/pex):
