@@ -7,7 +7,7 @@ sudo wget blaze.oat.sh/blaze -O /usr/bin/blaze && \
 sudo chmod +x /usr/bin/blaze
 ```
 
-(future upgrades can be done in-place with `blaze --upgrade`)
+> (future upgrades can be done in-place with `blaze --upgrade`)
 
 Now go write your executable markdown with
 
@@ -72,47 +72,47 @@ print("run", arrow.now().humanize())  # blaze only processes .md files, plain sc
 
 Blaze's REAL trick, is that if it is called with a `.md` file, it only executes code inside triple-backtick codefences, as in this all-encompasing example of a literate program with built-in requirements:
 
-```python
+````python
 #!blaze pex flask flask_restful --
 
 # Imports
 First the imports, this demo requires the `flask_restful` package.
 Then we set up the Flask wsgi application object, `app` and the api wrapper, `api`.
 
-``python
+```python
 from flask import Flask
 from flask_restful import Resource, Api
 
 app = Flask(__name__)
 api = Api(app)
-``
+```
 
 # Flask Restful resources
 We define a single `HelloWorld` resource, that responds with a simple json
 object on a `GET` request.
 
-``python
+```python
 class HelloWorld(Resource):
     def get(self):
         return {'hello': 'world'}
-``
+```
 
 # Routing
 `api.add_resource()` wires the `Resource` class `HelloWorld` into the flask
 router at `/`.
 
-``
+```
 api.add_resource(HelloWorld, '/')
-``
+```
 
 # Run Server
 After we have created everything, we run the flask werkzeug server.
 
-``
+```
 if __name__ == '__main__':
     app.run()
-``
 ```
+````
 
 > (double backticks should be triple, but that messes with markdown highlighting - sorry!)
 
