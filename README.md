@@ -32,9 +32,8 @@ The second category I think is worth exploring.
 
 It is into this ecosystem I present [Blaze](https://gist.github.com/0atman/5ea526a3ae26409da50dd7697eb700e8).
 
-## Blaze is Tiny
-
-But what it gives you is the ability to execute your markdown files as though they were scripts: It is a drop-in replacement for `/usr/bin/env`:
+## Usage
+Fundamentally, Blaze is a drop-in replacement for `/usr/bin/env`. You stick it at the top of your script, and you can execute it. But Blaze's REAL trick, is that if it is called with a .md file, it only executes code inside triple-backtick codefences: This gives you is the ability to execute your markdown files as though they were normal scripts (it runs python, ruby, nodejs, shell, and likely many more):
 
 `myscript.py.md`
 ````markdown
@@ -56,18 +55,24 @@ $ ./myscript.py.md
 hi
 ```
 
-It then allows as many paramaters to be passed to your interpreter as you like (unlike normal shebangs), which means you can use tools like [pex](https://github.com/pantsbuild/pex):
+# Advanced Useage
+
+Blaze also allows as many paramaters to be passed to your interpreter as you like (unlike normal shebangs), which means you can use tools like [pex](https://github.com/pantsbuild/pex):
 
 `myscript.py`
-```python
+````markdown
 #!blaze pex arrow --
 import arrow
-print("run", arrow.now().humanize())  # blaze only processes .md files, plain scripts can be run as-normal
-```
 
+# `Arrow` humanized dates example
+
+```python
+print("run", arrow.now().humanize())
+```
+````
 > (Note that we are able to use pex's ephemeral venv trick to run python with any requirements pre-installed)
 
-Blaze's REAL trick, is that if it is called with a `.md` file, it only executes code inside triple-backtick codefences, as in this all-encompasing example of a literate program with built-in requirements:
+Combine these techniques together, and you get an all-encompasing example of a webserver literate program with built-in requirements:
 
 `mydoc.py.md`
 ````markdown
