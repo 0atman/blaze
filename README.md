@@ -53,7 +53,7 @@ print("hello world")
 If you were to run this file, you would see this:
 
 ```shell
-$ ./myscript.py.md
+λ ./myscript.py.md
 hello world
 ```
 
