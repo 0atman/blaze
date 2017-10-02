@@ -44,7 +44,7 @@ $args $script.out
 rm $script.out
 ```
 
-> (non-core code stripped from this example, for the real deal, check [the source](https://github.com/0atman/blaze/blob/master/blaze)
+> (non-core code stripped from this example, for the real deal, check [the source])(https://github.com/0atman/blaze/blob/master/blaze)
 
 But what it gives you is the ability to execute your markdown files as though they were scripts: It is a drop-in replacement for `/usr/bin/env`:
 
