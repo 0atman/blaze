@@ -39,16 +39,9 @@ It is into this ecosystem I present [Blaze](https://gist.github.com/0atman/5ea52
 args=$1
 script=$2
 
-file_extension=$(echo $script |awk -F . '{if (NF>1) {print $NF}}')
-
-if [ "$file_extension" = "md" ]
-then
-    cat $script | awk '{ if (/^```/) { i++; next } if ( i % 2 == 1) { print } }' > $script.out
-    $args $script.out
-    rm $script.out
-else
-    $args $script
-fi
+cat $script | awk '{ if (/^```/) { i++; next } if ( i % 2 == 1) { print } }' > $script.out
+$args $script.out
+rm $script.out
 ```
 
 > (non-core code stripped from this example, for the real deal, check [the source](https://github.com/0atman/blaze/blob/master/blaze)
