@@ -1,5 +1,5 @@
 
-![blaze](/img/header.png)
+![blaze](https://user-images.githubusercontent.com/114097/31093888-1492563a-a7ab-11e7-8163-a3e1e8ff1cde.png)
 > blaze-example.py.md
 
 # Quickstart
@@ -21,7 +21,7 @@ There are two main kinds of tool in the modern LP category:
 
  1. Tools that write beautiful documentation based on comments in source code, such as [Docco](http://ashkenas.com/docco/) and (a personal favourite) [Marginalia](https://github.com/gdeer81/marginalia)
  2. Tools that allow you to execute code-fenced source code within some markup, such as [Literate](https://github.com/zyedidia/Literate), [litpro](https://github.com/jostylr/litpro), and tiny [lit](https://github.com/vijithassar/lit).
- 
+
 The first is an evolution of the documentation processors you will be familiar with, no real innovation has happened in this space since [Javadoc](https://en.wikipedia.org/wiki/Javadoc). (Much though I love [Sphynx](http://www.sphinx-doc.org/en/stable/index.html) et al)
 
 The second category I think is worth exploring.
