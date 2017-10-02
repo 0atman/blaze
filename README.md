@@ -152,7 +152,9 @@ $args $script.out
 rm $script.out
 ```
 
-> (non-core code stripped from this example, for the real deal, check [the source])(https://github.com/0atman/blaze/blob/master/blaze)
+> (non-core code stripped from this example, for the real deal, check [the source](https://github.com/0atman/blaze/blob/master/blaze)
+
+As you can see blaze simply runs your script through an `awk` script to strip all text outside triple-backtick code fences, then runs it with the interpreter of your choice. There's nothing to it really!
 
 ## Prior Art / Acknowledgements
 
