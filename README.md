@@ -1,5 +1,3 @@
-`#!/usr/bin/blaze python (or ruby, node, etc.)`
-
 # Quickstart
 
 Download the script, put it somewhere on your `PATH`, and make it executable:
@@ -8,6 +6,10 @@ Download the script, put it somewhere on your `PATH`, and make it executable:
 sudo wget blaze.oat.sh/blaze -O /usr/bin/blaze && \
 sudo chmod +x /usr/bin/blaze
 ```
+
+Now go write your executable markdown with
+
+`#!/usr/bin/blaze python (or ruby, node, whatever!)`
 
 # Motivation
 
