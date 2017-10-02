@@ -2,6 +2,14 @@
 args=$1
 script=$2
 
+
+if [ $1 = "--upgrade" ]
+then
+    sudo wget blaze.oat.sh/blaze -O $(readlink -f $0)
+    sudo chmod +x $(readlink -f $0)
+    exit 0
+fi
+
 file_extension=$(echo $script |awk -F . '{if (NF>1) {print $NF}}')
 
 if [ "$file_extension" = "md" ]
