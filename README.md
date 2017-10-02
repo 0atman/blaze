@@ -5,7 +5,8 @@
 # Quickstart
 
 ```shell
-sudo wget https://raw.githubusercontent.com/0atman/blaze/master/blaze -O /usr/bin/blaze && sudo chmod +x /usr/bin/blaze
+sudo wget https://raw.githubusercontent.com/0atman/blaze/master/blaze -O /usr/bin/blaze && \
+sudo chmod +x /usr/bin/blaze
 ```
 
 # Motivation
