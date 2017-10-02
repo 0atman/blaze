@@ -57,7 +57,7 @@ If you were to run this file, you would see this:
 hello world
 ```
 
-YOU JUST EXECUTED A MARKDOWN FILE!
+Congratulations, you just executed a markdown file!
 
 # Advanced Usage
 
