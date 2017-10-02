@@ -3,6 +3,8 @@
 
 # Quickstart
 
+Download the script, put it somewhere on your `PATH`, and make it executable:
+
 ```shell
 sudo wget blaze.oat.sh/blaze -O /usr/bin/blaze && \
 sudo chmod +x /usr/bin/blaze
