@@ -7,6 +7,8 @@ sudo wget blaze.oat.sh/blaze -O /usr/bin/blaze && \
 sudo chmod +x /usr/bin/blaze
 ```
 
+(future upgrades can be done in-place with `blaze --upgrade`)
+
 Now go write your executable markdown with
 
 `#!/usr/bin/blaze python (or ruby, node, whatever!)`
