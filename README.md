@@ -41,7 +41,9 @@ Fundamentally, Blaze is a drop-in replacement for `/usr/bin/env`. You stick it a
 
 # This file is just markdown
 
-As is this text. However, when you put code in markdown's code fences, it will be executed by blaze:
+As is this text.
+Whatever you put code in markdown's code fences,
+will be executed by blaze:
 
 ```python
 print("hello world")
