@@ -43,14 +43,13 @@ if [ "$file_extension" = "md" ]
 then
     cat $script | awk '{ if (/^```/) { i++; next } if ( i % 2 == 1) { print } }' > $script.out
     $args $script.out
-    exit_code=$?
     rm $script.out
 else
     $args $script
-    exit_code=$?
 fi
-exit $exit_code
 ```
+
+(non-core code stipped from this example, for the real deal, check [the source](https://github.com/0atman/blaze/blob/master/blaze)
 
 But what it gives you is the ability to execute your markdown files as though they were scripts: It is a drop-in replacement for `/usr/bin/env`:
 
