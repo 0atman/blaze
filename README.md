@@ -55,6 +55,7 @@ fi
 
 But what it gives you is the ability to execute your markdown files as though they were scripts: It is a drop-in replacement for `/usr/bin/env`:
 
+`myscript.py`
 ```python
 #!blaze python
 print("hi")
@@ -62,6 +63,7 @@ print("hi")
 
 It then allows as many paramaters to be passed to your interpreter as you like (unlike normal shebangs), which means you can use tools like [pex](https://github.com/pantsbuild/pex):
 
+`myscript.py`
 ```python
 #!blaze pex arrow --
 import arrow
@@ -72,6 +74,7 @@ print("run", arrow.now().humanize())  # blaze only processes .md files, plain sc
 
 Blaze's REAL trick, is that if it is called with a `.md` file, it only executes code inside triple-backtick codefences, as in this all-encompasing example of a literate program with built-in requirements:
 
+`mydoc.py.md`
 ````markdown
 #!blaze pex flask flask_restful --
 
