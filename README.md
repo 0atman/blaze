@@ -7,7 +7,7 @@ sudo wget blaze.oat.sh/blaze -O /usr/bin/blaze && \
 sudo chmod +x /usr/bin/blaze
 ```
 
-(future upgrades can be done in-place with `blaze --upgrade`)
+> (future upgrades can be done in-place with `blaze --upgrade`)
 
 Now go write your executable markdown with
 
@@ -32,89 +32,94 @@ The second category I think is worth exploring.
 
 It is into this ecosystem I present [Blaze](https://gist.github.com/0atman/5ea526a3ae26409da50dd7697eb700e8).
 
-## Blaze is Tiny:
+## Usage
+Fundamentally, Blaze is a drop-in replacement for `/usr/bin/env`. You stick it at the top of your script, and you can execute it. But Blaze's REAL trick, is that if it is called with an .md file, it only executes code inside triple-backtick codefences: This gives you is the ability to execute your markdown files as though they were normal scripts (it runs python, ruby, nodejs, shell, and likely many more). Here's a hello world example:
+
+`myscript.py.md`
+````markdown
+#!blaze python
+
+# This file is just markdown
+
+As is this text.
+Whatever you put code in markdown's code fences,
+will be executed by blaze:
+
+```python
+print("hello world")
+```
+````
+
+If you were to run this file, you would see this:
 
 ```shell
-#!/usr/bin/env sh
-args=$1
-script=$2
-
-file_extension=$(echo $script |awk -F . '{if (NF>1) {print $NF}}')
-
-if [ "$file_extension" = "md" ]
-then
-    cat $script | awk '{ if (/^```/) { i++; next } if ( i % 2 == 1) { print } }' > $script.out
-    $args $script.out
-    rm $script.out
-else
-    $args $script
-fi
+λ ./myscript.py.md
+hello world
 ```
 
-(non-core code stipped from this example, for the real deal, check [the source](https://github.com/0atman/blaze/blob/master/blaze)
+Congratulations, you just executed a markdown file!
 
-But what it gives you is the ability to execute your markdown files as though they were scripts: It is a drop-in replacement for `/usr/bin/env`:
+# Advanced Usage
 
-```python
-#!blaze python
-print("hi")
-```
+Blaze also allows as many paramaters to be passed to your interpreter as you like (unlike normal shebangs), which means you can use tools like [pex](https://github.com/pantsbuild/pex):
 
-It then allows as many paramaters to be passed to your interpreter as you like (unlike normal shebangs), which means you can use tools like [pex](https://github.com/pantsbuild/pex):
-
-```python
+`myscript.py`
+````markdown
 #!blaze pex arrow --
 import arrow
-print("run", arrow.now().humanize())  # blaze only processes .md files, plain scripts can be run as-normal
-```
 
-> (Note that we are able to use pex's ephemeral venv trick to run python with any requirements pre-installed)
-
-Blaze's REAL trick, is that if it is called with a `.md` file, it only executes code inside triple-backtick codefences, as in this all-encompasing example of a literate program with built-in requirements:
+# `Arrow` humanized dates example
 
 ```python
+print("run", arrow.now().humanize())
+```
+````
+> (Note that we are able to use pex's ephemeral venv trick to run python with any requirements pre-installed)
+
+Combine these techniques together, and you get an all-encompasing example of a webserver literate program with built-in requirements:
+
+`mydoc.py.md`
+````markdown
 #!blaze pex flask flask_restful --
 
 # Imports
 First the imports, this demo requires the `flask_restful` package.
 Then we set up the Flask wsgi application object, `app` and the api wrapper, `api`.
 
-``python
+```python
 from flask import Flask
 from flask_restful import Resource, Api
 
 app = Flask(__name__)
 api = Api(app)
-``
+```
 
 # Flask Restful resources
 We define a single `HelloWorld` resource, that responds with a simple json
 object on a `GET` request.
 
-``python
+```python
 class HelloWorld(Resource):
     def get(self):
         return {'hello': 'world'}
-``
+```
 
 # Routing
 `api.add_resource()` wires the `Resource` class `HelloWorld` into the flask
 router at `/`.
 
-``
+```
 api.add_resource(HelloWorld, '/')
-``
+```
 
 # Run Server
 After we have created everything, we run the flask werkzeug server.
 
-``
+```
 if __name__ == '__main__':
     app.run()
-``
 ```
-
-> (double backticks should be triple, but that messes with markdown highlighting - sorry!)
+````
 
 Magic, right?
 
@@ -134,6 +139,24 @@ hi
 hi
 ./blaze-test.py  0.02s user 0.00s system 67% cpu 0.030 total
 ```
+
+# Mechanics
+
+Here's the basics of Blaze, a small shell script:
+
+```shell
+#!/usr/bin/env sh
+args=$1
+script=$2
+
+cat $script | awk '{ if (/^```/) { i++; next } if ( i % 2 == 1) { print } }' > $script.out
+$args $script.out
+rm $script.out
+```
+
+> (non-core code stripped from this example, for the real deal, check [the source](https://github.com/0atman/blaze/blob/master/blaze)
+
+As you can see blaze simply runs your script through an `awk` script to strip all text outside triple-backtick code fences, then runs it with the interpreter of your choice. There's nothing to it really!
 
 ## Prior Art / Acknowledgements
 
