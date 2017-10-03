@@ -14,7 +14,7 @@ file_extension=$(echo $script |awk -F . '{if (NF>1) {print $NF}}')
 
 if [ "$file_extension" = "md" ]
 then
-    cat $script | awk '{ if (/^```/) { i++; next } if ( i % 2 == 1) { print } }' > $script.out
+    awk '{ if (/^```/) { i++; next } if ( i % 2 == 1) { print } }'< $script > $script.out
     $args $script.out
     exit_code=$?
     rm $script.out
