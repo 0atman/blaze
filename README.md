@@ -17,7 +17,7 @@ Fundamentally, Blaze is a drop-in replacement for `/usr/bin/env`. You stick it a
 
 `myscript.rb.md`
 ````markdown
-#!blaze python
+#!blaze ruby
 
 # This file is just markdown
 
@@ -38,8 +38,6 @@ hello world
 ```
 
 Congratulations, you just executed a markdown file! This technique is called Literate Programming.
-
-
 
 
 # "Literate Programming?"
