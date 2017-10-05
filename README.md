@@ -13,6 +13,12 @@ Now go write your executable markdown with
 
 `#!/usr/bin/blaze python (or ruby, node, whatever!)`
 
+# "Literate Programming?"
+
+Literate Programming (LP for short) flips code commenting on its head: In normal programming, we write comments inside code. In LP, you write executable code inside a human-readable document. This documentation-first idea is a mental shift: You are writing documentation that has occasional references to implamentation, not code that has a smattering of comments. This forces you to think of the audience as another programmer, not a machine. When you think about it, that's actually the real audience.
+
+Blaze allows you to write executable code inside Markdown documents.
+
 # Motivation
 
 I've been playing with many literate programming tools since this technique of document-first programming came into my life two years ago.
@@ -58,6 +64,8 @@ hello world
 ```
 
 Congratulations, you just executed a markdown file!
+
+More examples in Ruby and Nodejs are in the [examples/](https://github.com/0atman/blaze/tree/master/examples) folder, but the principle is the same: Code inside backticks will be executed.
 
 # Advanced Usage
 
