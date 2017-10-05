@@ -64,7 +64,7 @@ The first is an evolution of the documentation processors you will be familiar w
 
 The second category I think is worth exploring.
 
-It is into this ecosystem I present [Blaze](https://gist.github.com/0atman/5ea526a3ae26409da50dd7697eb700e8).
+It is into this ecosystem I present Blaze. 
 
 
 # Advanced Usage
