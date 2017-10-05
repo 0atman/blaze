@@ -158,6 +158,13 @@ As you can see blaze runs your script through `awk` to strip all text outside tr
 
 Blaze is currently a hacked-together LP tool that is only suitable for one-off scripts. It would not be possible without [Rich Traube's](http://www.github.com/trauber) code-fence-stripping code [here](https://gist.github.com/trauber/4955706).
 
+# Further Reading
+
+> I started out with a document that was a simple bulleted list of the features I wanted it to have, took each feature one at a time and fleshed it out into a paragraph, and then picked out paragraphs to implement inline. A bit of rewriting, and when the document was done, the blog worked.
+
+[-ashkenas.com/literate-coffeescript/](https://web.archive.org/web/20130531033055/http://ashkenas.com/literate-coffeescript/) (archived in 2013)
+
+
 
 ## And the name?
 Blaze is lit, bro 😎
