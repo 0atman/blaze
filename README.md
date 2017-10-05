@@ -1,5 +1,4 @@
 # Quickstart
-
 Download the script, put it somewhere on your `PATH`, and make it executable, eg:
 
 ```shell
@@ -13,34 +12,7 @@ Now go write your executable markdown with
 
 `#!/usr/bin/blaze python (or ruby, node, whatever!)`
 
-# "Literate Programming?"
-
-Literate Programming (LP for short) flips code commenting on its head: In normal programming, we write comments inside code. In LP, you write executable code inside a human-readable document.
-
-This documentation-first idea requires a mental shift: You are writing documentation that has occasional references to implamentation, not code that has a smattering of comments. This forces you to think of the audience as another programmer, not a machine. When you think about it, that's who the real audience has been the whole time.
-
-Blaze allows you to write executable code inside Markdown documents.
-
-# Motivation
-
-I've been playing with many literate programming tools since this technique of document-first programming came into my life two years ago.
-
-[Literate programming](https://en.wikipedia.org/wiki/Literate_programming) (LP), a concept that has been around since at least the 80s, is back in the spotlight since the [Eve](http://witheve.com/) language (released by the Eve team headed by Chris Granger of [Light Table](http://lighttable.com) fame) was released to the public in 2015.
-
-While LP's original concept aimed to create a document-first system whereby the building blocks of the actual code could be read (by the human or compiler) in any order (as it is in Eve), the contemporary state of the art is focused on creating the document-first model with existing procedural languages.
-
-There are two main kinds of tool in the modern LP category:
-
- 1. Tools that write beautiful documentation based on comments in source code, such as [Docco](http://ashkenas.com/docco/) and (a personal favourite) [Marginalia](https://github.com/gdeer81/marginalia)
- 2. Tools that allow you to execute code-fenced source code within some markup, such as [Literate](https://github.com/zyedidia/Literate), [litpro](https://github.com/jostylr/litpro), and tiny [lit](https://github.com/vijithassar/lit).
-
-The first is an evolution of the documentation processors you will be familiar with, no real innovation has happened in this space since [Javadoc](https://en.wikipedia.org/wiki/Javadoc). (Much though I love [Sphynx](http://www.sphinx-doc.org/en/stable/index.html) et al)
-
-The second category I think is worth exploring.
-
-It is into this ecosystem I present [Blaze](https://gist.github.com/0atman/5ea526a3ae26409da50dd7697eb700e8).
-
-## Usage
+# Usage
 Fundamentally, Blaze is a drop-in replacement for `/usr/bin/env`. You stick it at the top of your script, and you can execute it. But Blaze's REAL trick, is that if called with an .md file, it executes code inside triple-backtick codefences: This gives you is the ability to execute your markdown files as though they were normal scripts (it runs python, ruby, nodejs, shell, and many more). Here's a ruby hello world example:
 
 `myscript.rb.md`
@@ -65,12 +37,39 @@ If you were to run this file, you would see this:
 hello world
 ```
 
-Congratulations, you just executed a markdown file!
+Congratulations, you just executed a markdown file! This technique is called Literate Programming.
 
-More examples in Ruby and Nodejs are in the [examples/](https://github.com/0atman/blaze/tree/master/examples) folder, but the principle is the same: Code inside backticks is executed.
+
+
+
+# "Literate Programming?"
+Literate Programming (LP for short) flips code commenting on its head: In normal programming, we write comments inside code. In LP, you write executable code inside a human-readable document.
+
+This documentation-first idea requires a mental shift: You are writing documentation that has occasional references to implamentation, not code that has a smattering of comments. This forces you to think of the audience as another programmer, not a machine. When you think about it, that's who the real audience has been the whole time.
+
+Blaze allows you to write executable code inside Markdown documents.
+
+
+# Motivation
+I've been playing with many literate programming tools since this technique of document-first programming came into my life two years ago.
+
+[Literate programming](https://en.wikipedia.org/wiki/Literate_programming) (LP), a concept that has been around since at least the 80s, is back in the spotlight since the [Eve](http://witheve.com/) language (released by the Eve team headed by Chris Granger of [Light Table](http://lighttable.com) fame) was released to the public in 2015.
+
+While LP's original concept aimed to create a document-first system whereby the building blocks of the actual code could be read (by the human or compiler) in any order (as it is in Eve), the contemporary state of the art is focused on creating the document-first model with existing procedural languages.
+
+There are two main kinds of tool in the modern LP category:
+
+ 1. Tools that write beautiful documentation based on comments in source code, such as [Docco](http://ashkenas.com/docco/) and (a personal favourite) [Marginalia](https://github.com/gdeer81/marginalia)
+ 2. Tools that allow you to execute code-fenced source code within some markup, such as [Literate](https://github.com/zyedidia/Literate), [litpro](https://github.com/jostylr/litpro), and tiny [lit](https://github.com/vijithassar/lit).
+
+The first is an evolution of the documentation processors you will be familiar with, no real innovation has happened in this space since [Javadoc](https://en.wikipedia.org/wiki/Javadoc). (Much though I love [Sphynx](http://www.sphinx-doc.org/en/stable/index.html) et al)
+
+The second category I think is worth exploring.
+
+It is into this ecosystem I present [Blaze](https://gist.github.com/0atman/5ea526a3ae26409da50dd7697eb700e8).
+
 
 # Advanced Usage
-
 Blaze also allows as many paramaters to be passed to your interpreter as you like (unlike normal shebangs), which means you can use tools like python's [pex](https://github.com/pantsbuild/pex):
 
 `myscript.py.md`
@@ -133,7 +132,9 @@ if __name__ == '__main__':
 
 Magic, right?
 
-## Overhead
+More examples in Ruby and Nodejs are in the [examples/](https://github.com/0atman/blaze/tree/master/examples) folder, but the principle is the same: Code inside backticks is executed.
+
+# Overhead
 Blaze introduces minimal startup overhead, somewhere between 5-20ms, an almost zero runtime overhead (`sh` is running, I suppose).
 
 # Mechanics
@@ -154,7 +155,7 @@ rm $script.out
 
 As you can see blaze runs your script through `awk` to strip all text outside triple-backtick code fences, then runs it with the interpreter of your choice. There's nothing to it really!
 
-## Prior Art / Acknowledgements
+# Prior Art / Acknowledgements
 
 Blaze is currently a hacked-together LP tool that is only suitable for one-off scripts. It would not be possible without [Rich Traube's](http://www.github.com/trauber) code-fence-stripping code [here](https://gist.github.com/trauber/4955706).
 
