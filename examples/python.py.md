@@ -1,5 +1,5 @@
-#!/usr/bin/blaze ruby
+#!blaze python
 
 ```
-print "ohai"
+print("ohai")
 ```
