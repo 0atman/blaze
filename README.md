@@ -43,7 +43,7 @@ Congratulations, you just executed a markdown file! This technique is called Lit
 # "Literate Programming?"
 Literate Programming (LP for short) inverts the code/comments relationship: In normal programming, we write comments inside code. In LP, you write executable code inside a human-readable document.
 
-This documentation-first idea requires a mental shift: You are writing documentation that has occasional references to implamentation, not code that has a smattering of comments. This forces you to think of the audience as another programmer, not a machine. When you think about it, that's who the real audience has been the whole time.
+This documentation-first idea causes a mental shift: You are writing documentation that has occasional references to implamentation, not code that has a smattering of comments. This forces you to think of the audience as another programmer, not a machine. When you think about it, that's who the real audience has been the whole time.
 
 Blaze allows you to write executable code inside Markdown documents.
 
@@ -51,9 +51,9 @@ Blaze allows you to write executable code inside Markdown documents.
 # Motivation
 I've been playing with many literate programming tools since this technique of document-first programming came into my life two years ago.
 
-[Literate programming](https://en.wikipedia.org/wiki/Literate_programming) (LP), a concept that has been around since at least the 80s, is back in the spotlight since the [Eve](http://witheve.com/) language (released by the Eve team headed by Chris Granger of [Light Table](http://lighttable.com) fame) was released to the public in 2015.
+[Literate programming](https://en.wikipedia.org/wiki/Literate_programming) (LP), a concept that has been around since at least the 80s, is back in the spotlight since the [Eve](http://witheve.com/) language (by the Eve team headed by Chris Granger of [Light Table](http://lighttable.com) fame) was released to the public in 2015.
 
-While LP's original concept aimed to create a document-first system whereby the building blocks of the actual code could be read (by the human or compiler) in any order (as it is in Eve), the contemporary state of the art is focused on creating the document-first model with existing procedural languages.
+While LP's original concept aimed to create a document-first system whereby the building blocks of the actual code could be read (by the human or compiler) in any order (as it is in Eve), the contemporary state of the art is focused on creating the document-first model with existing procedural languages. With the powerful encapsulation techniques we have with modern languages, reading code in any order has become less important.
 
 There are two main kinds of tool in the modern LP category:
 
@@ -132,8 +132,6 @@ Magic, right?
 
 More examples in Ruby and Nodejs are in the [examples/](https://github.com/0atman/blaze/tree/master/examples) folder, but the principle is the same: Code inside backticks is executed.
 
-# Overhead
-Blaze introduces minimal startup overhead, somewhere between 5-20ms, an almost zero runtime overhead (`sh` is running, I suppose).
 
 # Mechanics
 
@@ -152,6 +150,10 @@ rm $script.out
 > (non-core code stripped from this example, for the real deal, check [the source](https://github.com/0atman/blaze/blob/master/blaze)
 
 As you can see blaze runs your script through `awk` to strip all text outside triple-backtick code fences, then runs it with the interpreter of your choice. There's nothing to it really!
+
+# Overhead
+Blaze introduces minimal startup overhead, somewhere between 5-20ms, an almost zero runtime overhead (`sh` is running, I suppose).
+
 
 # Prior Art / Acknowledgements
 
