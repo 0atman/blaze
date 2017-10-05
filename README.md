@@ -41,7 +41,7 @@ Congratulations, you just executed a markdown file! This technique is called Lit
 
 
 # "Literate Programming?"
-Literate Programming (LP for short) flips code commenting on its head: In normal programming, we write comments inside code. In LP, you write executable code inside a human-readable document.
+Literate Programming (LP for short) inverts the code/comments relationship: In normal programming, we write comments inside code. In LP, you write executable code inside a human-readable document.
 
 This documentation-first idea requires a mental shift: You are writing documentation that has occasional references to implamentation, not code that has a smattering of comments. This forces you to think of the audience as another programmer, not a machine. When you think about it, that's who the real audience has been the whole time.
 
