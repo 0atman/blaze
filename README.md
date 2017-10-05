@@ -15,7 +15,9 @@ Now go write your executable markdown with
 
 # "Literate Programming?"
 
-Literate Programming (LP for short) flips code commenting on its head: In normal programming, we write comments inside code. In LP, you write executable code inside a human-readable document. This documentation-first idea is a mental shift: You are writing documentation that has occasional references to implamentation, not code that has a smattering of comments. This forces you to think of the audience as another programmer, not a machine. When you think about it, that's actually the real audience.
+Literate Programming (LP for short) flips code commenting on its head: In normal programming, we write comments inside code. In LP, you write executable code inside a human-readable document.
+
+This documentation-first idea requires a mental shift: You are writing documentation that has occasional references to implamentation, not code that has a smattering of comments. This forces you to think of the audience as another programmer, not a machine. When you think about it, that's who the real audience has been the whole time.
 
 Blaze allows you to write executable code inside Markdown documents.
 
