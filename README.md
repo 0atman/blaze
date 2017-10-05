@@ -1,6 +1,6 @@
 # Quickstart
 
-Download the script, put it somewhere on your `PATH`, and make it executable:
+Download the script, put it somewhere on your `PATH`, and make it executable, eg:
 
 ```shell
 sudo wget blaze.oat.sh/blaze -O /usr/bin/blaze && \
