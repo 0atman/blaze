@@ -5,7 +5,7 @@ script=$2
 
 if [ $1 = "--upgrade" ]
 then
-    sudo wget blaze.oat.sh/blaze -O $(readlink -f $0)
+    sudo wget blaze.oat.sh/blaze -q -O $(readlink -f $0)
     sudo chmod +x $(readlink -f $0)
     echo "Blaze upgraded to latest"
     exit 0
