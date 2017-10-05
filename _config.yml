@@ -1,3 +1,4 @@
 theme: jekyll-theme-slate
 show_downloads: true
 title: Blaze
+description: Blaze allows you to write executable code inside Markdown documents
