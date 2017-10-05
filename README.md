@@ -156,7 +156,7 @@ As you can see blaze runs your script through `awk` to strip all text outside tr
 
 ## Prior Art / Acknowledgements
 
-Blaze is currently a hacked-together LP tool that is only suitable for one-off scripts. It would not be possible without [@trauber](http://www.github.com/trauber)'s code-fence-stripping code: [here](https://gist.github.com/trauber/4955706).
+Blaze is currently a hacked-together LP tool that is only suitable for one-off scripts. It would not be possible without [Rich Traube's](http://www.github.com/trauber) code-fence-stripping code [here](https://gist.github.com/trauber/4955706).
 
 
 ## And the name?
