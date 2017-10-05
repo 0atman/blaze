@@ -41,39 +41,39 @@ The second category I think is worth exploring.
 It is into this ecosystem I present [Blaze](https://gist.github.com/0atman/5ea526a3ae26409da50dd7697eb700e8).
 
 ## Usage
-Fundamentally, Blaze is a drop-in replacement for `/usr/bin/env`. You stick it at the top of your script, and you can execute it. But Blaze's REAL trick, is that if it is called with an .md file, it only executes code inside triple-backtick codefences: This gives you is the ability to execute your markdown files as though they were normal scripts (it runs python, ruby, nodejs, shell, and likely many more). Here's a hello world example:
+Fundamentally, Blaze is a drop-in replacement for `/usr/bin/env`. You stick it at the top of your script, and you can execute it. But Blaze's REAL trick, is that if called with an .md file, it executes code inside triple-backtick codefences: This gives you is the ability to execute your markdown files as though they were normal scripts (it runs python, ruby, nodejs, shell, and many more). Here's a ruby hello world example:
 
-`myscript.py.md`
+`myscript.rb.md`
 ````markdown
 #!blaze python
 
 # This file is just markdown
 
 As is this text.
-Whatever you put code in markdown's code fences,
-will be executed by blaze:
+Whatever you put in markdown's code fences,
+gets executed by blaze:
 
-```python
-print("hello world")
+```ruby
+print "hello world"
 ```
 ````
 
 If you were to run this file, you would see this:
 
 ```shell
-λ ./myscript.py.md
+λ ./myscript.rb.md
 hello world
 ```
 
 Congratulations, you just executed a markdown file!
 
-More examples in Ruby and Nodejs are in the [examples/](https://github.com/0atman/blaze/tree/master/examples) folder, but the principle is the same: Code inside backticks will be executed.
+More examples in Ruby and Nodejs are in the [examples/](https://github.com/0atman/blaze/tree/master/examples) folder, but the principle is the same: Code inside backticks is executed.
 
 # Advanced Usage
 
-Blaze also allows as many paramaters to be passed to your interpreter as you like (unlike normal shebangs), which means you can use tools like [pex](https://github.com/pantsbuild/pex):
+Blaze also allows as many paramaters to be passed to your interpreter as you like (unlike normal shebangs), which means you can use tools like python's [pex](https://github.com/pantsbuild/pex):
 
-`myscript.py`
+`myscript.py.md`
 ````markdown
 #!blaze pex arrow --
 import arrow
@@ -86,9 +86,9 @@ print("run", arrow.now().humanize())
 ````
 > (Note that we are able to use pex's ephemeral venv trick to run python with any requirements pre-installed)
 
-Combine these techniques together, and you get an all-encompasing example of a webserver literate program with built-in requirements:
+Combine these techniques together, and you get an all-encompasing example of a standalone literate webserver with built-in requirements:
 
-`mydoc.py.md`
+`myapi.py.md`
 ````markdown
 #!blaze pex flask flask_restful --
 
@@ -136,20 +136,6 @@ Magic, right?
 ## Overhead
 Blaze introduces minimal startup overhead, somewhere between 5-20ms, an almost zero runtime overhead (`sh` is running, I suppose).
 
-### Python Shebang
-```shell
-λ ./py-test.py
-hi
-./py-test.py  0.02s user 0.00s system 94% cpu 0.025 total
-```
-
-### Blaze Shebang
-```shell
-λ ./blaze-test.py
-hi
-./blaze-test.py  0.02s user 0.00s system 67% cpu 0.030 total
-```
-
 # Mechanics
 
 Here's the basics of Blaze, a small shell script:
@@ -166,11 +152,11 @@ rm $script.out
 
 > (non-core code stripped from this example, for the real deal, check [the source](https://github.com/0atman/blaze/blob/master/blaze)
 
-As you can see blaze simply runs your script through an `awk` script to strip all text outside triple-backtick code fences, then runs it with the interpreter of your choice. There's nothing to it really!
+As you can see blaze runs your script through `awk` to strip all text outside triple-backtick code fences, then runs it with the interpreter of your choice. There's nothing to it really!
 
 ## Prior Art / Acknowledgements
 
-Blaze is currently a hacked-together LP tool that is only suitable for one-off scripts. I borrowed the awk code-fence-stripping code from [@trauber](https://gist.github.com/trauber/4955706).
+Blaze is currently a hacked-together LP tool that is only suitable for one-off scripts. It would not be possible without [@trauber](http://www.github.com/trauber)'s code-fence-stripping code: [here](https://gist.github.com/trauber/4955706).
 
 
 ## And the name?
