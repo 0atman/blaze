@@ -1,0 +1,5 @@
+#!blaze hy
+
+```
+(print "ohai")
+```

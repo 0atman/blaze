@@ -3,7 +3,7 @@ args=$1
 script=$2
 
 
-if [ $1 = "--upgrade" ]
+if [ "$1" = "--upgrade" ]
 then
     sudo wget blaze.oat.sh/blaze -q -O $(readlink -f $0)
     sudo chmod +x $(readlink -f $0)
