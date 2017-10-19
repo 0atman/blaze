@@ -1,4 +1,9 @@
 #!/usr/bin/env sh
+#
+# Blaze allows language-agnostic literate-style programming
+# Author: Tristram Oaten <tristram@oaten.name>
+#
+
 args=$1
 script=$2
 
