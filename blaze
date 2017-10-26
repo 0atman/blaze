@@ -1,7 +1,8 @@
 #!/usr/bin/env sh
 #
 # Blaze allows language-agnostic literate-style programming
-# Author: Tristram Oaten <tristram@oaten.name>
+# Copyright (c) 2017 Tristram Oaten <tristram@oaten.name>
+# License: MIT <https://opensource.org/licenses/MIT>
 # Site: blaze.oat.sh
 #
 
