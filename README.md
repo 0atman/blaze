@@ -159,6 +159,8 @@ Blaze introduces minimal startup overhead, somewhere between 5-20ms, an almost z
 
 Blaze is currently a hacked-together LP tool that is only suitable for one-off scripts. It would not be possible without [Rich Traube's](http://www.github.com/trauber) code-fence-stripping code [here](https://gist.github.com/trauber/4955706).
 
+If you want to write a multiple-file project with exactly the same method, consider [lit](https://github.com/vijithassar/lit), which converts all `[*.md]` files to `[*]`, with everything but codefenced code stripped out.
+
 # Further Reading
 
 > I started out with a document that was a simple bulleted list of the features I wanted it to have, took each feature one at a time and fleshed it out into a paragraph, and then picked out paragraphs to implement inline. A bit of rewriting, and when the document was done, the blog worked.
