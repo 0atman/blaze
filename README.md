@@ -2,8 +2,8 @@
 Download the script, put it somewhere on your `PATH`, and make it executable, eg:
 
 ```shell
-sudo wget blaze.oat.sh/blaze -O /usr/bin/blaze && \
-sudo chmod +x /usr/bin/blaze
+sudo curl http://blaze.oat.sh/blaze --output /usr/local/bin/blaze &&
+sudo chmod +x /usr/local/bin/blaze
 ```
 
 > (future upgrades can be done in-place with `blaze --upgrade`)
